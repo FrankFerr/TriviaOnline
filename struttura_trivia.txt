@@ -1,20 +1,18 @@
 gioco trivia
 
-1) registrazione + login
+- Single player:
+	. partita classica -> 	numero predefinito di domande, categoria a caso o fissa, tot secondi per rispondere che si rigenerano ad ogni domanda, se terminano i secondi = risposta sbagliata.
+				La partita finisce quando si risponde a tutte le domande.
 
-2) modalità:
-	- Single player:
-		. partita classica -> 	numero predefinito di domande, ogni domanda appartiene ad una categoria a caso, tot secondi per rispondere che si rigenerano ad ogni domanda
+	. contro il tempo -> 	scegli una categoria (o casuale), rispondi alle domande fino allo scadere del tempo ogni risposta corretta aumenta il tempo di un tot di secondi,
+				altrimenti diminuisce il tempo
 
-		. contro il tempo -> 	scegli una categoria, rispondi alle domande fino allo scadere del tempo ogni risposta corretta aumenta il tempo di un tot di secondi,
-					altrimenti diminuisce il tempo
+- Multiplayer:
+	. Crea -> crea una nuova partita, scelta numero giocatori (2-4), scelta numero di domande, 
 
-	- Multiplayer:
-		. Crea -> crea una nuova partita, scelta numero giocatori (2-4), scelta numero di domande, 
+	. Cerca -> mostro la lista di partite non ancora incominciate a cui poter partecipare
 
-		. Cerca -> mostro la lista di partite non ancora incominciate a cui poter partecipare
+	. Notifica -> quando si passa alla prossima domanda, se l'utente non è loggato, mandare una mail di notifica
 
-		. Notifica -> quando si passa alla prossima domanda, se l'utente non è loggato, mandare una mail di notifica
-
-		. Partita -> 	categoria a caso ad ogni domanda, tot secondi per rispondere che si rigenerano ad ogni domanda, stessa domanda per tutti i partecipanti e 
-			     	si passa alla prossima solo quando hanno risposto tutti, 15min di inattività risposta errata di default
+	. Partita -> 	categoria a caso ad ogni domanda, tot secondi per rispondere che si rigenerano ad ogni domanda, stessa domanda per tutti i partecipanti e 
+			si passa alla prossima solo quando hanno risposto tutti, 15min di inattività risposta errata di default
