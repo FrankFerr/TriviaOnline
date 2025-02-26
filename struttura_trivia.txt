@@ -14,5 +14,5 @@ gioco trivia
 
 	. Notifica -> quando si passa alla prossima domanda, se l'utente non è loggato, mandare una mail di notifica
 
-	. Partita -> 	categoria a caso ad ogni domanda, tot secondi per rispondere che si rigenerano ad ogni domanda, stessa domanda per tutti i partecipanti e 
-			si passa alla prossima solo quando hanno risposto tutti, 15min di inattività risposta errata di default
+	. Partita -> 	si risponde a domande di ogni categoria, 3 domande per ogni categoria, categoria random, stessa domanda per tutti i partecipanti.
+			quando hanno risposto tutti a tutte le domande si assegna il punteggio e si passa alla prossima categoria, 15min di inattività risposta errata di default
