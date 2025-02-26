@@ -7,11 +7,12 @@ Microservizio Main:
 	- lista partite attive da riprendere
 	- creazione partita singola: 
 		. popolamento tabella PARTITE + PARTITE_DOMANDE + PARTITE_UTENTI
-	- creazione stanza per partita multi o mostra lista partite non ancora avviate per poter partecipare
+	- inizio partita: settare flag su PARTITE
+	- creazione stanza per partita multi
+	- mostra lista partite non ancora avviate per poter partecipare
 
 Microservizio SinglePlayer:
 	
-	- restituire prossima domanda
+	- restituire prossima domanda ancora da rispondere per una determinata partita
 	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE
-		- se fine partita memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI
-		- altrimenti memorizzare risposta in PARTITE_UTENTI_RISPOSTE
+	- memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI
