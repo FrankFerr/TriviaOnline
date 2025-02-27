@@ -11,6 +11,7 @@ Microservizio Main:
 	- inizio partita: settare flag su PARTITE
 	- creazione stanza per partita multi
 	- in modalità Multiplayer mostra lista partite non ancora avviate per poter partecipare
+	- gestione profilo
 
 Microservizio SinglePlayer:
 	- inizio partita: popolamento tabella PARTITE + PARTITE_DOMANDE + PARTITE_UTENTI
@@ -23,4 +24,5 @@ Microservizio MultiPlayer:
 	- inizio partita: popolamento tabella PARTITE + PARTITE_DOMANDE + PARTITE_UTENTI
 	- restituire prossima domanda ancora da rispondere per una determinata coppia partita-utente
 	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE
-
+	- quando NM_DOMANDE_RISPOSTE == NM_DOMANDE allora il gioco terminato
+	- memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI + STORICO_PARTITE_UTENTI_RISPOSTE
