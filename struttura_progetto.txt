@@ -26,3 +26,6 @@ Microservizio MultiPlayer:
 	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE
 	- quando NM_DOMANDE_RISPOSTE == NM_DOMANDE allora il gioco terminato
 	- memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI + STORICO_PARTITE_UTENTI_RISPOSTE
+
+Microservizio Storico:
+	TBD: gestione richieste statistiche
