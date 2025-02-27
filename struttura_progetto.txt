@@ -1,7 +1,6 @@
 STRUTTURA PROGETTO
 
 Microservizio Main:
-
 	- gestione registrazione/login
 	- menu principale gioco
 	- lista partite attive e non per l'utente
@@ -16,11 +15,12 @@ Microservizio Main:
 Microservizio SinglePlayer:
 	- inizio partita: popolamento tabella PARTITE + PARTITE_DOMANDE + PARTITE_UTENTI
 	- restituire prossima domanda ancora da rispondere per una determinata partita
-	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE
-	- quando le PARTITE_UTENTI_RISPOSTE corrisponde alle PARTITE_DOMANDE per quella partita == gioco terminato 
-		- memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI + STORICO_PARTITE_UTENTI_RISPOSTE
+	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE + incrementare NM_DOMANDE_RISPOSTE
+	- quando NM_DOMANDE_RISPOSTE == NM_DOMANDE allora il gioco terminato 
+	- memorizzare la partita in STORICO_PARTITE + STORICO_PARTITE_UTENTI + STORICO_PARTITE_UTENTI_RISPOSTE
 
 Microservizio MultiPlayer:
 	- inizio partita: popolamento tabella PARTITE + PARTITE_DOMANDE + PARTITE_UTENTI
-	- restituire prossima domanda ancora da rispondere per una determinata coppia partita-utente-categoria
-	- assegnare punteggio categoria
+	- restituire prossima domanda ancora da rispondere per una determinata coppia partita-utente
+	- ricevere una risposta e memorizzarla in PARTITE_UTENTI_RISPOSTE
+
