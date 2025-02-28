@@ -6,19 +6,17 @@ gioco trivia
 	. Lista partite attive (max 3)
 
 - Single player:
-	. partita classica -> 	numero predefinito di domande, categoria a caso o fissa, tot secondi per rispondere che si rigenerano ad ogni domanda, se terminano i secondi = risposta sbagliata.
-				La partita finisce quando si risponde a tutte le domande.
+	. partita classica -> 	scegli il numero di domande, categorie casuali o fissa, tot secondi per rispondere che si rigenerano ad ogni domanda, se terminano i secondi = risposta sbagliata. La partita finisce quando si risponde a tutte le domande.
 
-	. contro il tempo -> 	scegli una categoria (o casuale), rispondi alle domande fino allo scadere del tempo ogni risposta corretta aumenta il tempo di un tot di secondi,
-				altrimenti diminuisce il tempo
+	. contro il tempo -> 	scegli una categoria (o casuale), rispondi alle domande fino allo scadere del tempo. Ogni risposta corretta aumenta il tempo di un tot di secondi, altrimenti lo diminuisce
 
 - Multiplayer:
-	. Crea -> crea una nuova partita, scelta numero giocatori (2-4), scelta numero di domande, 
+	. Crea -> crea una nuova partita, scelta numero giocatori (2-4), scelta numero di domande, non si può scegliere la categoria
 
 	. Cerca -> mostro la lista di partite non ancora incominciate a cui poter partecipare
 
-	. Partita -> 	si risponde a domande di ogni categoria, 3 domande per ogni categoria, categoria random, stessa domanda per tutti i partecipanti.
-			quando hanno risposto tutti a tutte le domande si assegna il punteggio e si passa alla prossima categoria, 15min di inattività risposta errata di default
+	. Partita -> 	si risponde a 3 domande per categoria, categoria random, stessa domanda per tutti i partecipanti.
+			quando hanno risposto tutti a tutte le domande della categoria corrente si assegna il punteggio e si passa alla prossima categoria, 15min di inattività risposta errata di default
 
 
 - S/M
