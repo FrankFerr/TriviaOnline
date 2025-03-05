@@ -30,7 +30,7 @@ public partial class PartiteDomande
 
     [Column("NM_DOMANDA")]
     [Precision(3)]
-    public byte NmDomanda { get; set; }
+    public int NmDomanda { get; set; }
 
     [ForeignKey("OidDomanda")]
     [InverseProperty("PartiteDomande")]

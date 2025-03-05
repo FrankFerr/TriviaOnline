@@ -24,7 +24,7 @@ public partial class StoricoPartiteUtenti
 
     [Column("NM_RISPOSTE_CORRETTE")]
     [Precision(2)]
-    public byte? NmRisposteCorrette { get; set; }
+    public int? NmRisposteCorrette { get; set; }
 
     [Column("FL_ESITO")]
     [StringLength(1)]

@@ -21,7 +21,7 @@ public partial class DomandeRisposte
 
     [Column("ID_RISPOSTA")]
     [Precision(4)]
-    public byte? IdRisposta { get; set; }
+    public int? IdRisposta { get; set; }
 
     [Column("DS_RISPOSTA")]
     [StringLength(255)]
