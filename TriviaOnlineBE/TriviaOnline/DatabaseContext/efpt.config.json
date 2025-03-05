@@ -1,0 +1,93 @@
+﻿{
+   "CodeGenerationMode": 5,
+   "ContextClassName": "127.0.0.1:1521\/triviaonlinepdbContext",
+   "ContextNamespace": null,
+   "FilterSchemas": true,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Context\/TriviaModel",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "DatabaseContext",
+   "Schemas": [
+      {
+         "Name": "TRIVIAONLINETEST"
+      }
+   ],
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "TRIVIAONLINETEST.CATEGORIE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.DOMANDE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.DOMANDE_RISPOSTE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.PARTITE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.PARTITE_DOMANDE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.PARTITE_UTENTI",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.PARTITE_UTENTI_RISPOSTE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.STORICO_PARTITE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.STORICO_PARTITE_UTENTI",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.STORICO_PARTITE_UTENTI_DOM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "TRIVIAONLINETEST.UTENTI",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": true,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}
