@@ -14,20 +14,20 @@ namespace TriviaRepository.Controllers.TriviaControllers
         {
         }
 
-        [HttpPost(Name = "Insert entity")]
-        public new Task<RepositoryResponse> InsertEntity(StoricoPartiteUtentiDom entity)
+        [HttpPost]
+        public override Task<RepositoryResponse> InsertEntity(StoricoPartiteUtentiDom entity)
         {
             throw new NotImplementedException();
         }
 
-        [HttpPut(Name = "Update entity")]
-        public new Task<RepositoryResponse> UpdateEntity([FromBody] StoricoPartiteUtentiDom entity)
+        [HttpPut]
+        public override Task<RepositoryResponse> UpdateEntity([FromBody] StoricoPartiteUtentiDom entity)
         {
             throw new NotImplementedException();
         }
 
-        [HttpDelete("{oid :decimal}", Name = "Delete entity")]
-        public new Task<RepositoryResponse> DeleteEntity(decimal oid)
+        [HttpDelete("{oid :decimal}")]
+        public override Task<RepositoryResponse> DeleteEntity(decimal oid)
         {
             throw new NotImplementedException();
         }

@@ -19,7 +19,7 @@ namespace TriviaRepository.Controllers
             _repository = repository;
         }
 
-        [HttpGet(Name = "GetAll")]
+        [HttpGet]
         public async Task<RepositoryResponse> GetAll()
         {
             RepositoryResponse response = new();
@@ -38,7 +38,7 @@ namespace TriviaRepository.Controllers
             return response;
         }
 
-        [HttpGet("{oid :decimal}", Name = "Get by oid")]
+        [HttpGet("{oid:decimal}")]
         public async Task<RepositoryResponse> GetByOid(decimal oid)
         {
             RepositoryResponse response = new();
@@ -64,8 +64,8 @@ namespace TriviaRepository.Controllers
             return response;
         }
 
-        [HttpPost(Name = "Insert entity")]
-        public async Task<RepositoryResponse> InsertEntity([FromBody] T entity)
+        [HttpPost]
+        public virtual async Task<RepositoryResponse> InsertEntity([FromBody] T entity)
         {
             RepositoryResponse response = new();
 
@@ -82,8 +82,8 @@ namespace TriviaRepository.Controllers
             return response;
         }
 
-        [HttpPut(Name = "Update entity")]
-        public async Task<RepositoryResponse> UpdateEntity([FromBody] T entity)
+        [HttpPut]
+        public virtual async Task<RepositoryResponse> UpdateEntity([FromBody] T entity)
         {
             RepositoryResponse response = new();
 
@@ -100,8 +100,8 @@ namespace TriviaRepository.Controllers
             return response;
         }
 
-        [HttpDelete("{oid :decimal}", Name = "Delete entity")]
-        public async Task<RepositoryResponse> DeleteEntity(decimal oid)
+        [HttpDelete("{oid:decimal}")]
+        public virtual async Task<RepositoryResponse> DeleteEntity(decimal oid)
         {
             RepositoryResponse response = new();
 

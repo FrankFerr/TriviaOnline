@@ -11,7 +11,7 @@ namespace TriviaRepository.Services
         private TriviaContext _context;
         private DbSet<T> _set;
 
-        StandardRepository(TriviaContext context)
+        public StandardRepository(TriviaContext context)
         {
             _context = context;
             _set = _context.Set<T>();
