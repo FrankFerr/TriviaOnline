@@ -8,7 +8,7 @@
    "OutputContextPath": null,
    "OutputPath": "Context\/TriviaModel",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "DatabaseContext",
+   "ProjectRootNamespace": "TriviaRepository",
    "Schemas": [
       {
          "Name": "TRIVIAONLINETEST"

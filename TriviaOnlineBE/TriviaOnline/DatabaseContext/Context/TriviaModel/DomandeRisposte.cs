@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 [Table("DOMANDE_RISPOSTE")]
 [Index("OidDomanda", "IdRisposta", Name = "PKP_DOMANDE_RISPOSTE")]

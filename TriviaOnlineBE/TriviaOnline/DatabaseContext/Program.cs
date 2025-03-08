@@ -1,7 +1,9 @@
-using DatabaseContext.Context.TriviaModel;
+using TriviaRepository.Context.TriviaModel;
+using TriviaRepository.Interfaces;
+using TriviaRepository.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext
+namespace TriviaRepository
 {
     public class Program
     {
@@ -21,6 +23,8 @@ namespace DatabaseContext
                 options.UseOracle(builder.Configuration.GetConnectionString(builder.Environment.EnvironmentName));
             });
 
+            AddRepository(builder.Services);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -38,6 +42,18 @@ namespace DatabaseContext
             app.MapControllers();
 
             app.Run();
+        }
+
+        private static void AddRepository(IServiceCollection services)
+        {
+            services.AddScoped<IStandardRepository<Utenti>, StandardRepository<Utenti>>();
+            services.AddScoped<IStandardRepository<Partite>, StandardRepository<Partite>>();
+            services.AddScoped<IStandardRepository<PartiteDomande>, StandardRepository<PartiteDomande>>();
+            services.AddScoped<IStandardRepository<PartiteUtenti>, StandardRepository<PartiteUtenti>>();
+            services.AddScoped<IStandardRepository<PartiteUtentiRisposte>, StandardRepository<PartiteUtentiRisposte>>();
+            services.AddScoped<IStandardRepository<Categorie>, StandardRepository<Categorie>>();
+            services.AddScoped<IStandardRepository<Domande>, StandardRepository<Domande>>();
+            services.AddScoped<IStandardRepository<DomandeRisposte>, StandardRepository<DomandeRisposte>>();
         }
     }
 }
