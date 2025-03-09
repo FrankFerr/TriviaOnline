@@ -2,7 +2,6 @@
 using TriviaRepository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared;
-using System.Security.Cryptography;
 
 namespace TriviaRepository.Controllers
 {

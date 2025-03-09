@@ -8,5 +8,12 @@
             ERRORE,
             NON_TROVATO
         }
+
+        public enum EUserRegistrationResponse
+        {
+            OK,
+            ERRORE,
+            EMAIL_ESISTENTE
+        }
     }
 }

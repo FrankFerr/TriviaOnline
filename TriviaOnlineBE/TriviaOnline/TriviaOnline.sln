@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{C3D30B0F-DFCD-400F-B0EE-8778EFBC314C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F381554-BFA0-425B-928B-5ABFBD64A4E8} = {6F381554-BFA0-425B-928B-5ABFBD64A4E8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaRepository", "DatabaseContext\TriviaRepository.csproj", "{C1F837D3-21AF-4945-A5C5-5CA141AFAC9F}"
 	ProjectSection(ProjectDependencies) = postProject
