@@ -2,6 +2,8 @@ using TriviaRepository.Context.TriviaModel;
 using TriviaRepository.Interfaces;
 using TriviaRepository.Services;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Serilog.Core;
 
 namespace TriviaRepository
 {
@@ -18,12 +20,25 @@ namespace TriviaRepository
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             
+            // DB Context
             builder.Services.AddDbContext<TriviaContext>(options =>
             {
                 options.UseOracle(builder.Configuration.GetConnectionString(builder.Environment.EnvironmentName));
             });
 
+            // Repositories
             AddRepository(builder.Services);
+
+            // Logging
+            builder.Logging.ClearProviders();
+
+            Logger logger = new LoggerConfiguration().WriteTo.File(
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../logs/log.txt"),
+                rollingInterval: RollingInterval.Hour,
+                retainedFileCountLimit: 90
+            ).CreateLogger();
+
+            builder.Logging.AddSerilog(logger);
 
             var app = builder.Build();
 
