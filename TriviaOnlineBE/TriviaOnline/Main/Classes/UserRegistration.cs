@@ -27,7 +27,7 @@ namespace Main.Classes
             _patternMatchingValidDel = UserFieldValidator.PatternMatchingValidDel;
         }
 
-        UserRegitrationResponse Validate()
+        public UserRegitrationResponse Validate()
         {
             throw new NotImplementedException();
         }
