@@ -2,18 +2,14 @@
 {
     public static class Constants
     {
-        public enum ERepositoryResponse
+        public enum EResponse
         {
             OK,
             ERRORE,
-            NON_TROVATO
+            NON_TROVATO,
+            EMAIL_ESISTENTE,
+            RECORD_ESISTENTE
         }
 
-        public enum EUserRegistrationResponse
-        {
-            OK,
-            ERRORE,
-            EMAIL_ESISTENTE
-        }
     }
 }
