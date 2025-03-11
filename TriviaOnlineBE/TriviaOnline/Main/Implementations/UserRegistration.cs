@@ -1,8 +1,9 @@
 ﻿using Main.Classes.UserRegistrationHelper;
 using Main.Interfaces;
-using Shared;
+using Shared.Response;
+using static Shared.Constants;
 
-namespace Main.Classes
+namespace Main.Implementations
 {
     public class UserRegistration : IUserRegistration
     {
@@ -17,7 +18,8 @@ namespace Main.Classes
 
         public bool EmailExists(string email)
         {
-            throw new NotImplementedException();
+            //TODO
+            return true;
         }
 
         public void InitializeValidator()
@@ -27,9 +29,20 @@ namespace Main.Classes
             _patternMatchingValidDel = UserFieldValidator.PatternMatchingValidDel;
         }
 
-        public UserRegitrationResponse Validate()
+        public Response Validate(UserValidateBody body)
         {
-            throw new NotImplementedException();
+            Response response = new();
+
+            if (EmailExists(body.Email))
+            {
+                response.Result = false;
+                response.ResponseCode = EResponse.EMAIL_ESISTENTE;
+                return response;
+            }
+
+            //TODO
+
+            return response;
         }
     }
 }

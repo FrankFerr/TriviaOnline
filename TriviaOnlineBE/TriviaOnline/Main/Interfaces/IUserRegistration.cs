@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Main.Classes.UserRegistrationHelper;
+using Shared.Response;
 
 namespace Main.Interfaces
 {
@@ -6,6 +7,6 @@ namespace Main.Interfaces
     {
         bool EmailExists(string email);
         void InitializeValidator();
-        UserRegitrationResponse Validate();
+        Response Validate(UserValidateBody body);
     }
 }
