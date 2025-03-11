@@ -1,9 +1,10 @@
 using TriviaRepository.Context.TriviaModel;
 using TriviaRepository.Interfaces;
-using TriviaRepository.Services;
+using TriviaRepository.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Core;
+using TriviaRepository.Middleware;
 
 namespace TriviaRepository
 {
@@ -51,8 +52,10 @@ namespace TriviaRepository
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            // Middleware
+            app.UseMiddleware<ExceptionMiddleware>();
 
+            app.UseAuthorization();
 
             app.MapControllers();
 
