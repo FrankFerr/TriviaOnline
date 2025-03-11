@@ -2,119 +2,68 @@
 using TriviaRepository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared;
+using Shared.Response;
+using static Shared.Constants;
 
 namespace TriviaRepository.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class StandardRepositoryController<T> : ControllerBase where T : class
     {
-        private TriviaContext _context;
         private IStandardRepository<T> _repository;
 
-        public StandardRepositoryController(TriviaContext context, IStandardRepository<T> repository)
+        public StandardRepositoryController(IStandardRepository<T> repository)
         {
-            _context = context;
             _repository = repository;
         }
 
         [HttpGet]
-        public async Task<RepositoryResponse> GetAll()
+        public async Task<ActionResult<Response>> GetAll()
         {
-            RepositoryResponse response = new();
+            Response response = await _repository.GetAllAsync();
 
-            try
-            {
-                IEnumerable<T> values = await _repository.GetAllAsync();
-                response.Data = values;
-            }
-            catch(Exception e)
-            {
-                response.Result = false;
-                response.Message = e.Message;
-            }
-
-            return response;
+            return Ok(response);
         }
 
         [HttpGet("{oid:decimal}")]
-        public async Task<RepositoryResponse> GetByOid(decimal oid)
+        public async Task<ActionResult<Response>> GetByOid(decimal oid)
         {
-            RepositoryResponse response = new();
-
-            try
-            {
-                T? entity = await _repository.GetByOidAsync(oid);
-                
-                if(entity == null)
-                {
-                    response.Result = false;
-                    response.Message = Constants.ERepositoryResponse.NON_TROVATO.ToString();
-                }
-
-                response.Data = entity;
-            }
-            catch (Exception e)
-            {
-                response.Result = false;
-                response.Message = e.Message;
-            }
-
-            return response;
+            Response response = await _repository.GetByOidAsync(oid);
+            
+            return Ok(response);
         }
 
         [HttpPost]
-        public virtual async Task<RepositoryResponse> InsertEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> InsertEntity([FromBody] T entity)
         {
-            RepositoryResponse response = new();
+            Response response = await _repository.InsertAsync(entity);
 
-            try
-            {
-                await _repository.InsertAsync(entity);
-            }
-            catch (Exception e)
-            {
-                response.Result = false;
-                response.Message = e.Message;
-            }
-
-            return response;
+            if (response.ResponseCode == EResponse.RECORD_ESISTENTE)
+                return BadRequest(response);
+            
+            return Created("", response);
         }
 
         [HttpPut]
-        public virtual async Task<RepositoryResponse> UpdateEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> UpdateEntity([FromBody] T entity)
         {
-            RepositoryResponse response = new();
+            Response response = await _repository.UpdateAsync(entity);
 
-            try
-            {
-                await _repository.UpdateAsync(entity);
-            }
-            catch (Exception e)
-            {
-                response.Result = false;
-                response.Message = e.Message;
-            }
+            if (response.ResponseCode == EResponse.NON_TROVATO)
+                return BadRequest(response);
 
-            return response;
+            return Ok(response);
         }
 
         [HttpDelete("{oid:decimal}")]
-        public virtual async Task<RepositoryResponse> DeleteEntity(decimal oid)
+        public virtual async Task<ActionResult<Response>> DeleteEntity(decimal oid)
         {
-            RepositoryResponse response = new();
+            Response response = await _repository.DeleteAsync(oid);
 
-            try
-            {
-                await _repository.DeleteAsync(oid);
-            }
-            catch (Exception e)
-            {
-                response.Result = false;
-                response.Message = e.Message;
-            }
+            if (response.ResponseCode == EResponse.NON_TROVATO)
+                return BadRequest(response);
 
-            return response;
+            return Ok(response);
         }
     }
 }

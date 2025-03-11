@@ -9,7 +9,7 @@ namespace TriviaRepository.Controllers.TriviaControllers
     [ApiController]
     public class UtentiController : StandardRepositoryController<Utenti>
     {
-        public UtentiController(TriviaContext context, IStandardRepository<Utenti> repository) : base(context, repository)
+        public UtentiController(IStandardRepository<Utenti> repository) : base(repository)
         {
         }
     }

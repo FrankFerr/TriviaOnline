@@ -2,7 +2,7 @@
 using TriviaRepository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Shared;
+using Shared.Response;
 
 namespace TriviaRepository.Controllers.TriviaControllers
 {
@@ -10,24 +10,24 @@ namespace TriviaRepository.Controllers.TriviaControllers
     [ApiController]
     public class StoricoPartiteUtentiController : StandardRepositoryController<StoricoPartiteUtenti>
     {
-        public StoricoPartiteUtentiController(TriviaContext context, IStandardRepository<StoricoPartiteUtenti> repository) : base(context, repository)
+        public StoricoPartiteUtentiController(IStandardRepository<StoricoPartiteUtenti> repository) : base(repository)
         {
         }
 
         [HttpPost]
-        public override Task<RepositoryResponse> InsertEntity(StoricoPartiteUtenti entity)
+        public override Task<ActionResult<Response>> InsertEntity(StoricoPartiteUtenti entity)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut]
-        public override Task<RepositoryResponse> UpdateEntity([FromBody] StoricoPartiteUtenti entity)
+        public override Task<ActionResult<Response>> UpdateEntity([FromBody] StoricoPartiteUtenti entity)
         {
             throw new NotImplementedException();
         }
 
-        [HttpDelete("{oid :decimal}")]
-        public override Task<RepositoryResponse> DeleteEntity(decimal oid)
+        [HttpDelete("{oid:decimal}")]
+        public override Task<ActionResult<Response>> DeleteEntity(decimal oid)
         {
             throw new NotImplementedException();
         }

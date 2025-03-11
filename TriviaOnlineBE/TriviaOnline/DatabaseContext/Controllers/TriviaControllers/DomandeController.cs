@@ -9,7 +9,7 @@ namespace TriviaRepository.Controllers.TriviaControllers
     [ApiController]
     public class DomandeController : StandardRepositoryController<Domande>
     {
-        public DomandeController(TriviaContext context, IStandardRepository<Domande> repository) : base(context, repository)
+        public DomandeController(IStandardRepository<Domande> repository) : base(repository)
         {
         }
     }
