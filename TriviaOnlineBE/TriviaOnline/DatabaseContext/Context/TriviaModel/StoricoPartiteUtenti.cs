@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 [Table("STORICO_PARTITE_UTENTI")]
 [Index("OidStoricoPartita", "IdUsername", Name = "PKP_STORICO_PARTITE_UTENTI")]
@@ -24,7 +24,7 @@ public partial class StoricoPartiteUtenti
 
     [Column("NM_RISPOSTE_CORRETTE")]
     [Precision(2)]
-    public byte? NmRisposteCorrette { get; set; }
+    public int? NmRisposteCorrette { get; set; }
 
     [Column("FL_ESITO")]
     [StringLength(1)]

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 public partial class TriviaContext : DbContext
 {

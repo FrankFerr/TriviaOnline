@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 [Table("PARTITE_DOMANDE")]
 [Index("OidPartita", "OidDomanda", Name = "PKP_PARTITE_DOMANDE")]
@@ -30,7 +30,7 @@ public partial class PartiteDomande
 
     [Column("NM_DOMANDA")]
     [Precision(3)]
-    public byte NmDomanda { get; set; }
+    public int NmDomanda { get; set; }
 
     [ForeignKey("OidDomanda")]
     [InverseProperty("PartiteDomande")]

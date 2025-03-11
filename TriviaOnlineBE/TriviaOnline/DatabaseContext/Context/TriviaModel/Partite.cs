@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 [Table("PARTITE")]
 [Index("IdPartita", "TpPartita", Name = "PKP_PARTITE")]
@@ -43,19 +43,19 @@ public partial class Partite
 
     [Column("NM_PARTECIPANTI")]
     [Precision(2)]
-    public byte NmPartecipanti { get; set; }
+    public int NmPartecipanti { get; set; }
 
     [Column("NM_DOMANDE")]
     [Precision(2)]
-    public byte NmDomande { get; set; }
+    public int NmDomande { get; set; }
 
     [Column("NM_RISPOSTE")]
     [Precision(2)]
-    public byte NmRisposte { get; set; }
+    public int NmRisposte { get; set; }
 
     [Column("NM_SEC_TIMEOUT_RISPOSTA")]
     [Precision(3)]
-    public byte NmSecTimeoutRisposta { get; set; }
+    public int NmSecTimeoutRisposta { get; set; }
 
     [Required]
     [Column("FL_INIZIATA")]

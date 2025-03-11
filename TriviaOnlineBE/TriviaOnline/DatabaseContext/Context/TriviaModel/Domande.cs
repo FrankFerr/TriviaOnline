@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatabaseContext.Context.TriviaModel;
+namespace TriviaRepository.Context.TriviaModel;
 
 [Table("DOMANDE")]
 [Index("OidCategoria", "IdDomanda", Name = "PKP_DOMANDE")]
@@ -21,7 +21,7 @@ public partial class Domande
 
     [Column("ID_DOMANDA")]
     [Precision(4)]
-    public byte? IdDomanda { get; set; }
+    public int? IdDomanda { get; set; }
 
     [Column("DS_DOMANDA")]
     [StringLength(255)]
