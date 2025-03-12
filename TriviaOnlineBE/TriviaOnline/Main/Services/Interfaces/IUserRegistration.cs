@@ -1,12 +1,11 @@
 ﻿using Main.Classes.UserRegistrationHelper;
-using Shared.Response;
+using Shared.ResponseModel;
 
-namespace Main.Interfaces
+namespace Main.Services.Interfaces
 {
     public interface IUserRegistration
     {
         bool EmailExists(string email);
-        void InitializeValidator();
-        Response Validate(UserValidateBody body);
+        Response Register(UserValidateBody body);
     }
 }
