@@ -1,12 +1,12 @@
 ﻿using TriviaRepository.Context.TriviaModel;
-using TriviaRepository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Shared;
 using static Shared.Constants;
-using Shared.Response;
+using Shared.ResponseModel;
 using System.Security.Cryptography;
+using TriviaRepository.Services.Interfaces;
 
-namespace TriviaRepository.Implementations
+namespace TriviaRepository.Services.Implementations
 {
     public class StandardRepository<T> : IStandardRepository<T> where T : class
     {

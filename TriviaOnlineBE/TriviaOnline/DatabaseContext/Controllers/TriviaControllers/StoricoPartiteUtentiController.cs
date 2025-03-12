@@ -2,7 +2,7 @@
 using TriviaRepository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Response;
+using Shared.ResponseModel;
 
 namespace TriviaRepository.Controllers.TriviaControllers
 {

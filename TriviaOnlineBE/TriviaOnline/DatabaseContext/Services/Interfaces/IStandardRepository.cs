@@ -1,7 +1,7 @@
-﻿using Shared.Response;
+﻿using Shared.ResponseModel;
 using static Shared.Constants;
 
-namespace TriviaRepository.Interfaces
+namespace TriviaRepository.Services.Interfaces
 {
     public interface IStandardRepository<T> where T : class
     {
