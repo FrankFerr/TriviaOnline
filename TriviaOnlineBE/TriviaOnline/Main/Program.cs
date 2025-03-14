@@ -1,7 +1,12 @@
 
+using Main.Services.Implementations;
+using Main.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Core;
+using Shared.BaseHttpManager;
+using Shared.RequestConfigManager;
+using Shared.RequestManager;
 
 namespace Main
 {
@@ -18,6 +23,12 @@ namespace Main
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddHttpClient();
+
+            AddServices(builder.Services);
+
+            // LOGGER
             builder.Logging.ClearProviders();
 
             Logger logger = new LoggerConfiguration().WriteTo.File(
@@ -45,6 +56,16 @@ namespace Main
             app.MapControllers();
 
             app.Run();
+        }
+
+        private static void AddServices(IServiceCollection services)
+        {
+            string endpointsPath = $"{Directory.GetCurrentDirectory()}/Config/{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}";
+            services.AddSingleton<IRequestConfigManager, RequestConfigManager>((c) => new RequestConfigManager().Initialize<RequestConfigManager>(endpointsPath));
+
+            services.AddScoped<IUserRegistration, UserRegistration>();
+            services.AddScoped<IBaseHttpManager, BaseHttpManager>();
+            services.AddScoped<IRequestManager, RequestManager>();
         }
     }
 }

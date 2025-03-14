@@ -1,5 +1,5 @@
 using TriviaRepository.Context.TriviaModel;
-using TriviaRepository.Interfaces;
+using TriviaRepository.Services.Interfaces;
 using TriviaRepository.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Serilog;

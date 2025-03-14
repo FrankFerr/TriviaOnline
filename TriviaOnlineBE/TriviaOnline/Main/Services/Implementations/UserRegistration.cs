@@ -1,9 +1,9 @@
 ﻿using Main.Classes.UserRegistrationHelper;
-using Main.Interfaces;
-using Shared.Response;
+using Main.Services.Interfaces;
+using Shared.ResponseModel;
 using static Shared.Constants;
 
-namespace Main.Implementations
+namespace Main.Services.Implementations
 {
     public class UserRegistration : IUserRegistration
     {
@@ -22,14 +22,14 @@ namespace Main.Implementations
             return true;
         }
 
-        public void InitializeValidator()
+        private void InitializeValidator()
         {
             _requireValidDel = UserFieldValidator.RequiredValidDel;
             _stringLengthValidDel = UserFieldValidator.StringLengthValidDel;
             _patternMatchingValidDel = UserFieldValidator.PatternMatchingValidDel;
         }
 
-        public Response Validate(UserValidateBody body)
+        public Response Register(UserValidateBody body)
         {
             Response response = new();
 

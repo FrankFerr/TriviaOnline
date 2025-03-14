@@ -1,8 +1,8 @@
 ﻿using TriviaRepository.Context.TriviaModel;
-using TriviaRepository.Interfaces;
+using TriviaRepository.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared;
-using Shared.Response;
+using Shared.ResponseModel;
 using static Shared.Constants;
 
 namespace TriviaRepository.Controllers

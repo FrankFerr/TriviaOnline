@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Shared.Constants;
 
-namespace Shared.Response
+namespace Shared.ResponseModel
 {
     public class Response
     {

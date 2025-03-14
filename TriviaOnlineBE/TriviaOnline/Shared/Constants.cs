@@ -8,8 +8,15 @@
             ERRORE,
             NON_TROVATO,
             EMAIL_ESISTENTE,
-            RECORD_ESISTENTE
+            RECORD_ESISTENTE,
+            ERRORE_REQUEST
         }
 
+        public enum ParametersType
+        {
+            PATH,
+            QUERY,
+            HEADERS
+        }
     }
 }
