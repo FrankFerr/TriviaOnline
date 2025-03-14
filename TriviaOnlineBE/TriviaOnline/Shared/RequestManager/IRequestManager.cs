@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main.Services.Interfaces
+namespace Shared.RequestManager
 {
     public interface IRequestManager
     {
-        Task<Response> Excecute(Request request, object? data);
+        Task<Response> Execute(RequestConfig config, object? data);
+        void AddParameters(RequestParameter param);
     }
 }

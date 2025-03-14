@@ -12,5 +12,11 @@
             ERRORE_REQUEST
         }
 
+        public enum ParametersType
+        {
+            PATH,
+            QUERY,
+            HEADERS
+        }
     }
 }
