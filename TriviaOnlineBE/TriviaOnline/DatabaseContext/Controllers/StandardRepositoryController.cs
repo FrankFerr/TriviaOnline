@@ -10,7 +10,7 @@ namespace TriviaRepository.Controllers
     [ApiController]
     public class StandardRepositoryController<T> : ControllerBase where T : class
     {
-        private IStandardRepository<T> _repository;
+        protected IStandardRepository<T> _repository;
 
         public StandardRepositoryController(IStandardRepository<T> repository)
         {
@@ -38,7 +38,7 @@ namespace TriviaRepository.Controllers
         {
             Response response = await _repository.InsertAsync(entity);
 
-            if (response.ResponseCode == EResponse.RECORD_ESISTENTE)
+            if (response.ResponseCode == EResponse.EXISTS_RECORD)
                 return BadRequest(response);
             
             return Created("", response);
@@ -49,7 +49,7 @@ namespace TriviaRepository.Controllers
         {
             Response response = await _repository.UpdateAsync(entity);
 
-            if (response.ResponseCode == EResponse.NON_TROVATO)
+            if (response.ResponseCode == EResponse.NOT_FOUND)
                 return BadRequest(response);
 
             return Ok(response);
@@ -60,7 +60,7 @@ namespace TriviaRepository.Controllers
         {
             Response response = await _repository.DeleteAsync(oid);
 
-            if (response.ResponseCode == EResponse.NON_TROVATO)
+            if (response.ResponseCode == EResponse.NOT_FOUND)
                 return BadRequest(response);
 
             return Ok(response);

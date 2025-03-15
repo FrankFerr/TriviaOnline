@@ -19,9 +19,9 @@ namespace Shared.RequestConfigManager
             return (T)Convert.ChangeType(this, typeof(T));
         }
 
-        public async Task<RequestConfig?> Get(string key)
+        public async Task<RequestConfig> Get(string key)
         {
-            RequestConfig? result = default;
+            RequestConfig result = new();
 
             await Task.Run(() =>
             {

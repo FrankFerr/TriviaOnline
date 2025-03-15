@@ -9,6 +9,6 @@ namespace Shared.ResponseModel
 {
     public class RepositoryResponse : Response
     {
-        public object? Data { get; set; }
+        public new object? Data { get; set; }
     }
 }

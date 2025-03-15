@@ -1,0 +1,17 @@
+{
+  "CheckEmail": {
+    "BaseUrl": "https://localhost:7136",
+    "Route": "/api/repository/utenti/email/{email}",
+    "Method": "Get"
+  },
+  "CheckUsername": {
+    "BaseUrl": "https://localhost:7136",
+    "Route": "/api/repository/utenti/username/{username}",
+    "Method": "Get"
+  },
+  "InsertUser": {
+    "BaseUrl": "https://localhost:7136",
+    "Route": "/api/repository/Utenti",
+    "Method": "Post"
+  }
+}

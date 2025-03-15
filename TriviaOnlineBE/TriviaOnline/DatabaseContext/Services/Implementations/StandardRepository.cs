@@ -10,7 +10,7 @@ namespace TriviaRepository.Services.Implementations
 {
     public class StandardRepository<T> : IStandardRepository<T> where T : class
     {
-        private TriviaContext _context;
+        protected TriviaContext _context;
         private DbSet<T> _set;
 
         public StandardRepository(TriviaContext context)
@@ -28,7 +28,7 @@ namespace TriviaRepository.Services.Implementations
             if (values.Count() == 0)
             {
                 response.Result = false;
-                response.ResponseCode = EResponse.NON_TROVATO;
+                response.ResponseCode = EResponse.NOT_FOUND;
             }
 
             response.Data = values;
@@ -44,7 +44,7 @@ namespace TriviaRepository.Services.Implementations
 
             if (entity == null)
             {
-                response.ResponseCode = EResponse.NON_TROVATO;
+                response.ResponseCode = EResponse.NOT_FOUND;
                 response.Result = false;
                 return response;
             }
@@ -64,7 +64,7 @@ namespace TriviaRepository.Services.Implementations
             if(response.Data == null)
             {
                 response.Result = false;
-                response.ResponseCode = EResponse.NON_TROVATO;
+                response.ResponseCode = EResponse.NOT_FOUND;
             }
 
             return response;
@@ -82,7 +82,7 @@ namespace TriviaRepository.Services.Implementations
             catch(DbUpdateException dbEx)
             {
                 response.Result = false;
-                response.ResponseCode = EResponse.RECORD_ESISTENTE;
+                response.ResponseCode = EResponse.EXISTS_RECORD;
                 response.Message = dbEx.Message;
             }
 
@@ -99,7 +99,7 @@ namespace TriviaRepository.Services.Implementations
             if(affectedRows == 0)
             {
                 response.Result = false;
-                response.ResponseCode = EResponse.NON_TROVATO;
+                response.ResponseCode = EResponse.NOT_FOUND;
             }
 
             return response;

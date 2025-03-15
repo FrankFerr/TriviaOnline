@@ -9,7 +9,7 @@ namespace Shared.RequestConfigManager
 {
     public interface IRequestConfigManager
     {
-        Task<RequestConfig?> Get(string key);
+        Task<RequestConfig> Get(string key);
         Task<string> GetString(string key);
     }
 }

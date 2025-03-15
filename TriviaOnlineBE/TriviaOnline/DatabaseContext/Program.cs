@@ -1,10 +1,10 @@
 using TriviaRepository.Context.TriviaModel;
 using TriviaRepository.Services.Interfaces;
-using TriviaRepository.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Core;
 using TriviaRepository.Middleware;
+using TriviaRepository.Services.Implementations;
 
 namespace TriviaRepository
 {
@@ -64,7 +64,7 @@ namespace TriviaRepository
 
         private static void AddRepository(IServiceCollection services)
         {
-            services.AddScoped<IStandardRepository<Utenti>, StandardRepository<Utenti>>();
+            services.AddScoped<IStandardRepository<Utenti>, UtentiRepository>();
             services.AddScoped<IStandardRepository<Partite>, StandardRepository<Partite>>();
             services.AddScoped<IStandardRepository<PartiteDomande>, StandardRepository<PartiteDomande>>();
             services.AddScoped<IStandardRepository<PartiteUtenti>, StandardRepository<PartiteUtenti>>();

@@ -10,7 +10,7 @@ namespace Shared.RequestManager
 {
     public interface IRequestManager
     {
-        Task<Response> Execute(RequestConfig config, object? data);
+        Task<Response> Execute(RequestConfig config, object? data = null);
         void AddParameters(RequestParameter param);
     }
 }

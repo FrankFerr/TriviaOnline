@@ -27,6 +27,16 @@ public partial class Utenti
     [Unicode(false)]
     public string IdUsername { get; set; }
 
+    [Column("ID_EMAIL")]
+    [StringLength(50)]
+    [Unicode(false)]
+    public string IdEmail { get; set; }
+
+    [Column("FL_ATTIVO")]
+    [StringLength(1)]
+    [Unicode(false)]
+    public string FlAttivo { get; set; }
+
     [InverseProperty("OidUtenteNavigation")]
     public virtual ICollection<PartiteUtenti> PartiteUtenti { get; set; } = new List<PartiteUtenti>();
 }
