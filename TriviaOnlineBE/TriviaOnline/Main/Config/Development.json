@@ -11,7 +11,7 @@
   },
   "InsertUser": {
     "BaseUrl": "https://localhost:7136",
-    "Route": "/api/repository/Utenti",
+    "Route": "/api/repository/utenti",
     "Method": "Post"
   }
 }

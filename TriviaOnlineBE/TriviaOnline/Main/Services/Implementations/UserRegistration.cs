@@ -93,15 +93,14 @@ namespace Main.Services.Implementations
             {
                 ExternalId = Guid.NewGuid().ToString(), // da sostituire con l'id dell'Identity server
                 IdUsername = body.Username,
-                IdEmail = body.Email,
-                FlAttivo = "S"
+                IdEmail = body.Email
             };
 
             RequestConfig requestConfig = await _requestConfigManager.Get("InsertUser");
 
-            Response resp = await _requestManager.Execute(requestConfig, user);
+            response = await _requestManager.Execute(requestConfig, user);
 
-            if (resp.Result)
+            if (response.Result)
                 _logger.LogInformation("Utente {idUsername} registrato con successo", user.IdUsername);
             else
                 _logger.LogInformation("Utente {idUseranme} non registrato", user.IdUsername);

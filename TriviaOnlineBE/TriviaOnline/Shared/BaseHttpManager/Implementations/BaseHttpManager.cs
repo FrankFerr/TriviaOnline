@@ -11,7 +11,7 @@ namespace Shared.BaseHttpManager
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<BaseHttpManager> _logger;
-        private readonly HttpRequestMessage _message;
+        private HttpRequestMessage _message;
 
         public BaseHttpManager(IHttpClientFactory httpClienttFactory, ILogger<BaseHttpManager> logger)
         {
@@ -51,6 +51,7 @@ namespace Shared.BaseHttpManager
             }
 
             _logger.LogInformation($"Chiamata avvenuta con successo [{_message.Method.ToString()}: {_message.RequestUri.OriginalString}]");
+            _message = new HttpRequestMessage();
 
             string responseContent = await httpResponse.Content.ReadAsStringAsync();
 

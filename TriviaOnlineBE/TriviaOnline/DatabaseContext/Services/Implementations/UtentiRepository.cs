@@ -13,7 +13,7 @@ namespace TriviaRepository.Services.Implementations
         {
             Response response = new();
 
-            response.Data = _context.Utenti.Where(u => u.IdEmail.Equals(email, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            response.Data = _context.Utenti.Where(u => u.IdEmail == email).FirstOrDefault();
 
             if(response.Data == null)
             {
