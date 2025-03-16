@@ -29,7 +29,7 @@ namespace Main.Services.Implementations
 
         public async Task<Response> Register(UserValidateBody body)
         {
-            _logger.LogInformation($"Main -> Users -> Register({body})");
+            _logger.LogInformation($"Users Service -> Register({body})");
 
             Response response = new();
 
@@ -39,6 +39,7 @@ namespace Main.Services.Implementations
                 _logger.LogWarning("Campi obbligatori non trovati {body}", body);
                 response.Result = false;
                 response.ResponseCode = EResponse.REQUIRED_FIELD_NOT_FOUND;
+                response.Message = "Campi obbligatori non trovati";
                 return response;
             }
 
@@ -48,14 +49,16 @@ namespace Main.Services.Implementations
                 _logger.LogWarning("Username non valido: {username}", body.Username);
                 response.Result = false;
                 response.ResponseCode = EResponse.USERNAME_NOT_VALID;
+                response.Message = "Username non valido";
                 return response;
             }
 
             if (await UsernameExists(body.Username))
             {
-                _logger.LogWarning("Username esistente: {email}", body.Username);
+                _logger.LogWarning("Username esistente: {username}", body.Username);
                 response.Result = false;
                 response.ResponseCode = EResponse.EXISTS_USERNAME;
+                response.Message = "Username esistente";
                 return response;
             }
 
@@ -65,6 +68,7 @@ namespace Main.Services.Implementations
                 _logger.LogWarning("Email non valida: {email}", body.Email);
                 response.Result = false;
                 response.ResponseCode = EResponse.EMAIL_NOT_VALID;
+                response.Message = "Email non valida";
                 return response;
             }
 
@@ -73,6 +77,7 @@ namespace Main.Services.Implementations
                 _logger.LogWarning("Email esistente: {email}", body.Email);
                 response.Result = false;
                 response.ResponseCode = EResponse.EXISTS_EMAIL;
+                response.Message = "Email esistente";
                 return response;
             }
 
@@ -82,6 +87,7 @@ namespace Main.Services.Implementations
                 _logger.LogWarning("Password non valida: {password}", body.Password);
                 response.Result = false;
                 response.ResponseCode = EResponse.PASSWORD_NOT_VALID;
+                response.Message = "Password non valida";
                 return response;
             }
 

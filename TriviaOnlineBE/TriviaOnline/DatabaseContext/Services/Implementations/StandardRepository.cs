@@ -12,11 +12,13 @@ namespace TriviaRepository.Services.Implementations
     {
         protected TriviaContext _context;
         private DbSet<T> _set;
+        private readonly ILogger<StandardRepository<T>> _logger;
 
-        public StandardRepository(TriviaContext context)
+        public StandardRepository(TriviaContext context, ILogger<StandardRepository<T>> logger)
         {
             _context = context;
             _set = _context.Set<T>();
+            _logger = logger;
         }
 
         public async Task<Response> GetAllAsync()
@@ -29,6 +31,8 @@ namespace TriviaRepository.Services.Implementations
             {
                 response.Result = false;
                 response.ResponseCode = EResponse.NOT_FOUND;
+                response.Message = "Nessun elemento trovato!";
+                _logger.LogInformation("GetAllAsync() -> Nessun elemento trovato");
             }
 
             response.Data = values;
@@ -46,6 +50,8 @@ namespace TriviaRepository.Services.Implementations
             {
                 response.ResponseCode = EResponse.NOT_FOUND;
                 response.Result = false;
+                response.Message = "Record non trovato";
+                _logger.LogInformation("DeleteAsync() -> Record non trovato");
                 return response;
             }
             
@@ -65,6 +71,8 @@ namespace TriviaRepository.Services.Implementations
             {
                 response.Result = false;
                 response.ResponseCode = EResponse.NOT_FOUND;
+                response.Message = "Record non trovato";
+                _logger.LogInformation("GetByOidAsync() -> Record non trovato");
             }
 
             return response;
@@ -84,6 +92,7 @@ namespace TriviaRepository.Services.Implementations
                 response.Result = false;
                 response.ResponseCode = EResponse.EXISTS_RECORD;
                 response.Message = dbEx.Message;
+                _logger.LogInformation("InsertAsync() -> Inserimento di un record esistente");
             }
 
             return response;
@@ -100,6 +109,8 @@ namespace TriviaRepository.Services.Implementations
             {
                 response.Result = false;
                 response.ResponseCode = EResponse.NOT_FOUND;
+                response.Message = "Record non trovato";
+                _logger.LogInformation("UpdateAsync() -> Record non trovato");
             }
 
             return response;
