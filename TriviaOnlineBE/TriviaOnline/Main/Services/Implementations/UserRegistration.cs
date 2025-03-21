@@ -107,9 +107,9 @@ namespace Main.Services.Implementations
             response = await _requestManager.Execute(requestConfig, user);
 
             if (response.Result)
-                _logger.LogInformation("Utente {idUsername} registrato con successo", user.IdUsername);
+                _logger.LogInformation("Utente {0} registrato con successo", user.IdUsername);
             else
-                _logger.LogInformation("Utente {idUseranme} non registrato", user.IdUsername);
+                _logger.LogInformation("Utente {0} non registrato: {1}", user.IdUsername, response.Message);
 
 
             return response;
