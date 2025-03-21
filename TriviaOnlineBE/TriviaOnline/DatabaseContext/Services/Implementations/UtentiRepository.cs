@@ -1,11 +1,13 @@
-﻿using Shared.ResponseModel;
+﻿using AutoMapper;
+using Shared.ResponseModel;
+using Shared.ViewModel;
 using TriviaRepository.Context.TriviaModel;
 
 namespace TriviaRepository.Services.Implementations
 {
-    public class UtentiRepository : StandardRepository<Utenti>
+    public class UtentiRepository : StandardRepository<Utenti, UtentiVM>
     {
-        public UtentiRepository(TriviaContext context) : base(context)
+        public UtentiRepository(TriviaContext context, ILogger<UtentiRepository> logger, IMapper mapper) : base(context, logger, mapper)
         {
         }
 

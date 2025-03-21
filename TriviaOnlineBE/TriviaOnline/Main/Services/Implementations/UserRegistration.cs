@@ -4,7 +4,7 @@ using Shared.RequestConfigManager;
 using Shared.RequestManager;
 using Shared.RequestModel;
 using Shared.ResponseModel;
-using TriviaRepository.Context.TriviaModel;
+using Shared.ViewModel;
 using static Shared.Constants;
 
 namespace Main.Services.Implementations
@@ -95,7 +95,7 @@ namespace Main.Services.Implementations
             //Registrazione sull'Identity Server
             // TODO
 
-            Utenti user = new Utenti()
+            UtentiVM user = new UtentiVM()
             {
                 ExternalId = Guid.NewGuid().ToString(), // da sostituire con l'id dell'Identity server
                 IdUsername = body.Username,

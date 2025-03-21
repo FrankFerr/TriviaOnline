@@ -4,17 +4,18 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ResponseModel;
 using TriviaRepository.Services.Implementations;
+using Shared.ViewModel;
 
 namespace TriviaRepository.Controllers.TriviaControllers
 {
     [Route("api/repository/[controller]")]
     [ApiController]
-    public class UtentiController : StandardRepositoryController<Utenti>
+    public class UtentiController : StandardRepositoryController<Utenti, UtentiVM>
     {
         private readonly UtentiRepository _utentiRepository;
         private readonly ILogger<UtentiController> _logger;
 
-        public UtentiController(IStandardRepository<Utenti> repository, ILogger<UtentiController> logger) : base(repository)
+        public UtentiController(IStandardRepository<Utenti, UtentiVM> repository, ILogger<UtentiController> logger) : base(repository)
         {
             _utentiRepository = (UtentiRepository)repository;
             _logger = logger;

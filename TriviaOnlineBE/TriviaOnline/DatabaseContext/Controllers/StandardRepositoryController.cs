@@ -8,11 +8,11 @@ using static Shared.Constants;
 namespace TriviaRepository.Controllers
 {
     [ApiController]
-    public class StandardRepositoryController<T> : ControllerBase where T : class
+    public class StandardRepositoryController<TModel, TViewModel> : ControllerBase where TModel : class where TViewModel : class
     {
-        protected IStandardRepository<T> _repository;
+        protected IStandardRepository<TModel, TViewModel> _repository;
 
-        public StandardRepositoryController(IStandardRepository<T> repository)
+        public StandardRepositoryController(IStandardRepository<TModel, TViewModel> repository)
         {
             _repository = repository;
         }
@@ -34,7 +34,7 @@ namespace TriviaRepository.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult<Response>> InsertEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> InsertEntity([FromBody] TViewModel entity)
         {
             Response response = await _repository.InsertAsync(entity);
 
@@ -45,7 +45,7 @@ namespace TriviaRepository.Controllers
         }
 
         [HttpPut]
-        public virtual async Task<ActionResult<Response>> UpdateEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> UpdateEntity([FromBody] TViewModel entity)
         {
             Response response = await _repository.UpdateAsync(entity);
 

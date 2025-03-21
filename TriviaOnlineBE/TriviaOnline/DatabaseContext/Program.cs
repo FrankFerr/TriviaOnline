@@ -5,6 +5,7 @@ using Serilog;
 using Serilog.Core;
 using TriviaRepository.Middleware;
 using TriviaRepository.Services.Implementations;
+using Shared.ViewModel;
 
 namespace TriviaRepository
 {
@@ -41,6 +42,9 @@ namespace TriviaRepository
 
             builder.Logging.AddSerilog(logger);
 
+            //Mapper
+            builder.Services.AddAutoMapper(typeof(RepositoryMapper));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -64,14 +68,14 @@ namespace TriviaRepository
 
         private static void AddRepository(IServiceCollection services)
         {
-            services.AddScoped<IStandardRepository<Utenti>, UtentiRepository>();
-            services.AddScoped<IStandardRepository<Partite>, StandardRepository<Partite>>();
-            services.AddScoped<IStandardRepository<PartiteDomande>, StandardRepository<PartiteDomande>>();
-            services.AddScoped<IStandardRepository<PartiteUtenti>, StandardRepository<PartiteUtenti>>();
-            services.AddScoped<IStandardRepository<PartiteUtentiRisposte>, StandardRepository<PartiteUtentiRisposte>>();
-            services.AddScoped<IStandardRepository<Categorie>, StandardRepository<Categorie>>();
-            services.AddScoped<IStandardRepository<Domande>, StandardRepository<Domande>>();
-            services.AddScoped<IStandardRepository<DomandeRisposte>, StandardRepository<DomandeRisposte>>();
+            services.AddScoped<IStandardRepository<Utenti, UtentiVM>, UtentiRepository>();
+            //services.AddScoped<IStandardRepository<Partite>, StandardRepository<Partite>>();
+            //services.AddScoped<IStandardRepository<PartiteDomande>, StandardRepository<PartiteDomande>>();
+            //services.AddScoped<IStandardRepository<PartiteUtenti>, StandardRepository<PartiteUtenti>>();
+            //services.AddScoped<IStandardRepository<PartiteUtentiRisposte>, StandardRepository<PartiteUtentiRisposte>>();
+            //services.AddScoped<IStandardRepository<Categorie>, StandardRepository<Categorie>>();
+            //services.AddScoped<IStandardRepository<Domande>, StandardRepository<Domande>>();
+            //services.AddScoped<IStandardRepository<DomandeRisposte>, StandardRepository<DomandeRisposte>>();
         }
     }
 }
