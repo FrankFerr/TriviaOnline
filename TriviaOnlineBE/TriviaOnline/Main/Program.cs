@@ -12,6 +12,8 @@ namespace Main
 {
     public class Program
     {
+        private static string endpointsPath = string.Empty;
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +28,8 @@ namespace Main
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddHttpClient();
 
+            endpointsPath = $"{Directory.GetCurrentDirectory()}{builder.Configuration["EndpointsFolder"]}/{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json";
+
             AddServices(builder.Services);
 
             // LOGGER
@@ -34,7 +38,7 @@ namespace Main
             Logger logger = new LoggerConfiguration().WriteTo.File(
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../logs/log.txt"),
                 rollingInterval: RollingInterval.Hour,
-                retainedFileCountLimit: 90
+                retainedFileCountLimit: 30
             ).CreateLogger();
 
             builder.Logging.AddSerilog(logger);
@@ -60,7 +64,6 @@ namespace Main
 
         private static void AddServices(IServiceCollection services)
         {
-            string endpointsPath = $"{Directory.GetCurrentDirectory()}/Config/{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}";
             services.AddSingleton<IRequestConfigManager, RequestConfigManager>((c) => new RequestConfigManager().Initialize<RequestConfigManager>(endpointsPath));
 
             services.AddScoped<IUserRegistration, UserRegistration>();

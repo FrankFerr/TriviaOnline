@@ -166,6 +166,7 @@ public partial class TriviaContext : DbContext
         modelBuilder.Entity<Utenti>(entity =>
         {
             entity.Property(e => e.Oid).ValueGeneratedOnAdd();
+            entity.Property(e => e.FlAttivo).HasDefaultValueSql("'S' ").IsFixedLength();
         });
         modelBuilder.HasSequence("SEQ_CATEGORIE");
         modelBuilder.HasSequence("SEQ_DOMANDE");

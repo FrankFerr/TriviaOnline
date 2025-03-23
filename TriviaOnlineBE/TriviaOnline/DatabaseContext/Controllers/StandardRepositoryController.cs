@@ -8,11 +8,11 @@ using static Shared.Constants;
 namespace TriviaRepository.Controllers
 {
     [ApiController]
-    public class StandardRepositoryController<T> : ControllerBase where T : class
+    public class StandardRepositoryController<TModel, TViewModel> : ControllerBase where TModel : class where TViewModel : class
     {
-        private IStandardRepository<T> _repository;
+        protected IStandardRepository<TModel, TViewModel> _repository;
 
-        public StandardRepositoryController(IStandardRepository<T> repository)
+        public StandardRepositoryController(IStandardRepository<TModel, TViewModel> repository)
         {
             _repository = repository;
         }
@@ -34,22 +34,22 @@ namespace TriviaRepository.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult<Response>> InsertEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> InsertEntity([FromBody] TViewModel entity)
         {
             Response response = await _repository.InsertAsync(entity);
 
-            if (response.ResponseCode == EResponse.RECORD_ESISTENTE)
+            if (response.ResponseCode == EResponse.EXISTS_RECORD)
                 return BadRequest(response);
             
             return Created("", response);
         }
 
         [HttpPut]
-        public virtual async Task<ActionResult<Response>> UpdateEntity([FromBody] T entity)
+        public virtual async Task<ActionResult<Response>> UpdateEntity([FromBody] TViewModel entity)
         {
             Response response = await _repository.UpdateAsync(entity);
 
-            if (response.ResponseCode == EResponse.NON_TROVATO)
+            if (response.ResponseCode == EResponse.NOT_FOUND)
                 return BadRequest(response);
 
             return Ok(response);
@@ -60,7 +60,7 @@ namespace TriviaRepository.Controllers
         {
             Response response = await _repository.DeleteAsync(oid);
 
-            if (response.ResponseCode == EResponse.NON_TROVATO)
+            if (response.ResponseCode == EResponse.NOT_FOUND)
                 return BadRequest(response);
 
             return Ok(response);

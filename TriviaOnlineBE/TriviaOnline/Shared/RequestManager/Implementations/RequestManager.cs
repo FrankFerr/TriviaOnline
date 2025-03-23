@@ -30,7 +30,7 @@ namespace Shared.RequestManager
             _parameters.Clear();
         }
 
-        public async Task<Response> Execute(RequestConfig config, object? data)
+        public async Task<Response> Execute(RequestConfig config, object? data = null)
         {
             Request request = new Request
             {
@@ -50,7 +50,7 @@ namespace Shared.RequestManager
                 response = new()
                 {
                     Result = false,
-                    ResponseCode = EResponse.ERRORE_REQUEST,
+                    ResponseCode = EResponse.REQUEST_ERROR,
                     Message = ex.Message
                 };
             }

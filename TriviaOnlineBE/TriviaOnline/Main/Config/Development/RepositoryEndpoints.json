@@ -1,7 +1,0 @@
-{
-  "CheckEmail": {
-    "BaseUrl": "https://localhost:7136",
-    "Route": "api/repository/utenti/{email}",
-    "Method": "Get"
-  }
-}

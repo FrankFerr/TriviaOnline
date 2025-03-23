@@ -5,7 +5,6 @@ namespace Main.Services.Interfaces
 {
     public interface IUserRegistration
     {
-        bool EmailExists(string email);
-        Response Register(UserValidateBody body);
+        Task<Response> Register(UserValidateBody body);
     }
 }

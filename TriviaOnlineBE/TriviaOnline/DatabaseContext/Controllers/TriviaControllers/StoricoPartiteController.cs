@@ -1,27 +1,28 @@
 ﻿using TriviaRepository.Context.TriviaModel;
-using TriviaRepository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ResponseModel;
+using TriviaRepository.Services.Interfaces;
+using Shared.ViewModel;
 
 namespace TriviaRepository.Controllers.TriviaControllers
 {
     [Route("api/repository/[controller]")]
     [ApiController]
-    public class StoricoPartiteController : StandardRepositoryController<StoricoPartite>
+    public class StoricoPartiteController : StandardRepositoryController<StoricoPartite, StoricoPartiteVM>
     {
-        public StoricoPartiteController(IStandardRepository<StoricoPartite> repository) : base(repository)
+        public StoricoPartiteController(IStandardRepository<StoricoPartite, StoricoPartiteVM> repository) : base(repository)
         {
         }
 
         [HttpPost]
-        public override Task<ActionResult<Response>> InsertEntity(StoricoPartite entity)
+        public override Task<ActionResult<Response>> InsertEntity(StoricoPartiteVM entity)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut]
-        public override Task<ActionResult<Response>> UpdateEntity([FromBody] StoricoPartite entity)
+        public override Task<ActionResult<Response>> UpdateEntity([FromBody] StoricoPartiteVM entity)
         {
             throw new NotImplementedException();
         }
