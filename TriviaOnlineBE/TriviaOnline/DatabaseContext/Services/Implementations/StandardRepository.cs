@@ -54,7 +54,7 @@ namespace TriviaRepository.Services.Implementations
                 response.ResponseCode = EResponse.NOT_FOUND;
                 response.Result = false;
                 response.Message = "Record non trovato";
-                _logger.LogInformation("DeleteAsync() -> Record non trovato");
+                _logger.LogInformation("DeleteAsync({0}) -> Record non trovato", oid);
                 return response;
             }
             
@@ -75,7 +75,7 @@ namespace TriviaRepository.Services.Implementations
                 response.Result = false;
                 response.ResponseCode = EResponse.NOT_FOUND;
                 response.Message = "Record non trovato";
-                _logger.LogInformation("GetByOidAsync() -> Record non trovato");
+                _logger.LogInformation("GetByOidAsync({0}) -> Record non trovato", oid);
             }
 
             return response;
@@ -97,7 +97,7 @@ namespace TriviaRepository.Services.Implementations
                 response.Result = false;
                 response.ResponseCode = EResponse.EXISTS_RECORD;
                 response.Message = dbEx.Message;
-                _logger.LogInformation("InsertAsync() -> Inserimento di un record esistente");
+                _logger.LogInformation("InsertAsync({0}) -> Inserimento di un record esistente", modelEntity);
             }
 
             return response;
@@ -117,7 +117,7 @@ namespace TriviaRepository.Services.Implementations
                 response.Result = false;
                 response.ResponseCode = EResponse.NOT_FOUND;
                 response.Message = "Record non trovato";
-                _logger.LogInformation("UpdateAsync() -> Record non trovato");
+                _logger.LogInformation("UpdateAsync({0}) -> Record non trovato", modelEntity);
             }
 
             return response;

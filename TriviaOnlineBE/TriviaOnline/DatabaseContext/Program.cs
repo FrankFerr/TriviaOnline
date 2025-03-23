@@ -69,13 +69,16 @@ namespace TriviaRepository
         private static void AddRepository(IServiceCollection services)
         {
             services.AddScoped<IStandardRepository<Utenti, UtentiVM>, UtentiRepository>();
-            //services.AddScoped<IStandardRepository<Partite>, StandardRepository<Partite>>();
-            //services.AddScoped<IStandardRepository<PartiteDomande>, StandardRepository<PartiteDomande>>();
-            //services.AddScoped<IStandardRepository<PartiteUtenti>, StandardRepository<PartiteUtenti>>();
-            //services.AddScoped<IStandardRepository<PartiteUtentiRisposte>, StandardRepository<PartiteUtentiRisposte>>();
-            //services.AddScoped<IStandardRepository<Categorie>, StandardRepository<Categorie>>();
-            //services.AddScoped<IStandardRepository<Domande>, StandardRepository<Domande>>();
-            //services.AddScoped<IStandardRepository<DomandeRisposte>, StandardRepository<DomandeRisposte>>();
+            services.AddScoped<IStandardRepository<Partite, PartiteVM>, StandardRepository<Partite, PartiteVM>>();
+            services.AddScoped<IStandardRepository<PartiteDomande, PartiteDomandeVM>, StandardRepository<PartiteDomande, PartiteDomandeVM>>();
+            services.AddScoped<IStandardRepository<PartiteUtenti, PartiteUtentiVM>, StandardRepository<PartiteUtenti, PartiteUtentiVM>>();
+            services.AddScoped<IStandardRepository<PartiteUtentiRisposte, PartiteUtentiRisposteVM>, StandardRepository<PartiteUtentiRisposte, PartiteUtentiRisposteVM>>();
+            services.AddScoped<IStandardRepository<Categorie, CategorieVM>, StandardRepository<Categorie, CategorieVM>>();
+            services.AddScoped<IStandardRepository<Domande, DomandeVM>, StandardRepository<Domande, DomandeVM>>();
+            services.AddScoped<IStandardRepository<DomandeRisposte, DomandeRisposteVM>, StandardRepository<DomandeRisposte, DomandeRisposteVM>>();
+            services.AddScoped<IStandardRepository<StoricoPartite, StoricoPartiteVM>, StandardRepository<StoricoPartite, StoricoPartiteVM>>();
+            services.AddScoped<IStandardRepository<StoricoPartiteUtenti, StoricoPartiteUtentiVM>, StandardRepository<StoricoPartiteUtenti, StoricoPartiteUtentiVM>>();
+            services.AddScoped<IStandardRepository<StoricoPartiteUtentiDom, StoricoPartiteUtentiDomVM>, StandardRepository<StoricoPartiteUtentiDom, StoricoPartiteUtentiDomVM>>();
         }
     }
 }

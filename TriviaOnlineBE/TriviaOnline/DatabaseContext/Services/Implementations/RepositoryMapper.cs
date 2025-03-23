@@ -9,6 +9,16 @@ namespace TriviaRepository.Services.Implementations
         public RepositoryMapper()
         {
             CreateMap<UtentiVM, Utenti>();
+            CreateMap<PartiteVM, Partite>();
+            CreateMap<CategorieVM, Categorie>();
+            CreateMap<PartiteDomandeVM, PartiteDomande>();
+            CreateMap<PartiteUtentiVM, PartiteUtenti>();
+            CreateMap<PartiteUtentiRisposteVM, PartiteUtentiRisposte>();
+            CreateMap<DomandeVM, Domande>();
+            CreateMap<DomandeRisposteVM, DomandeRisposte>();
+            CreateMap<StoricoPartiteVM, StoricoPartite>();
+            CreateMap<StoricoPartiteUtentiVM, StoricoPartiteUtenti>();
+            CreateMap<StoricoPartiteUtentiDomVM, StoricoPartiteUtentiDom>();
         }
     }
 }
